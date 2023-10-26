@@ -56,3 +56,14 @@ function zeroCheck(summedDigit) {
     };
 }
 
+function lengthVisaMastercardDiscover(cardNum) {
+    const cardArray = cardNum.split('');
+    if (cardArray.length === 15) {
+        return firstDigit3(cardArray);
+    } else if (cardArray.length === 16) {
+        return firstDigit456(cardArray);
+    } else {
+        return undefined;
+    }
+}
+
