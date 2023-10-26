@@ -1,11 +1,4 @@
-// function lessThan4 {
-//     let 1 = ["i"];
-//     if lessThan4 < [4] 
-inputNum = 4
-let I = 1
-answer = ''
-
-function makeI(inputNum) {
+function make1to8(inputNum) {
     const I = "I";
     const V = "V"
     if (inputNum < 4) {
@@ -16,19 +9,22 @@ function makeI(inputNum) {
         return V + I.repeat(inputNum % 5)
     }
 }
-function makeX(inputNum) {
-    const I = "I";
-    const V = "V";
+// currently working 9-39!!!
+function make9to19(inputNum) {
     const X = "X";
-    if (inputNum === 9) {
-        return I + X;
-    } else if (inputNum === 10) {
-        return X;
-    } else if (inputNum < 14) {
-        return X + I.repeat(inputNum % 10) 
-    } else if (inputNum === 14) {
-        return XIV;
-    } else if (inputNum < 19) {
-        return X + V + I.repeat(inputNum % 5)
+    if (inputNum > 30) {
+        return "XX" + make9to19(inputNum % 20)
+    } else if (inputNum === 30) {
+        return "XXX"
+    } else if (inputNum > 20) {
+        return "X" + make9to19(inputNum % 20)
+    } else if (inputNum === 20) {
+        return "X" + make9to19(inputNum / 2)
+    } else if (inputNum === 9) {
+        return "IX";
+    } else if (inputNum % 10 < 9) {
+        return X + make1to8(inputNum % 10)
+    } else if (inputNum % 10 === 9) {
+        return X + make9to19(inputNum % 10)
     }
 }
