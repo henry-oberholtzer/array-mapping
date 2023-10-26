@@ -1,6 +1,10 @@
 const cardNum = "0998445533334452";
 
 function strToArray(cardNum) {
-    cardArray = cardNum.split('');
-    return cardArray;
+    const cardArray = cardNum.split('');
+    arrayReverse(cardArray);
+}
+
+function arrayReverse(cardArray) {
+    const reversedArray = cardNum.reverse();
 }
