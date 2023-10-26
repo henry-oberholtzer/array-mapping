@@ -67,3 +67,24 @@ function lengthVisaMastercardDiscover(cardNum) {
     }
 }
 
+function firstDigit3(cardArray) {
+    if (cardArray[0] !== "3") {
+        return null
+    }
+    if (cardArray[1] === "4" || cardArray[1] === "7") {
+        return "AmEx"
+    };
+};
+
+function firstDigit456(cardArray) {
+    if (cardArray[0] === "4") {
+        return "This is a Visa card."
+    }
+    if (cardArray[0] === "5") {
+        return "This is a Master Card"
+    }
+    if (cardArray[0] === "6") {
+        return "This is a Discover card."
+    } else {return "Check your number; this is not a valid number."
+    }
+};
