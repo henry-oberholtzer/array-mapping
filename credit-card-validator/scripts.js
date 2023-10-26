@@ -1,4 +1,5 @@
 const cardNum = "0998445533334452";
+// 4 5 8 4 6 3 6 3 1 5 8 4 7 9 9 0 reversed, doubled, singled
 
 function strToArray(cardNum) {
     const cardArray = cardNum.split('');
@@ -19,7 +20,7 @@ function arrayDouble(reversedArray) {
             return num;
         }
     });
-    return doubledArray;
+    return toSingleDigit(doubledArray);
 }
 
 function toSingleDigit(doubledArray) {
@@ -39,4 +40,8 @@ function toSingleDigit(doubledArray) {
         }
     });
     return singleDigitArray;
+}
+
+function arraySum (singleDigitArray) {
+    let finalNum = singleDigitArray.reduce();
 }
