@@ -39,9 +39,20 @@ function toSingleDigit(doubledArray) {
             singleDigitArray.push(number);
         }
     });
-    return singleDigitArray;
+    return arraySum(singleDigitArray);
 }
 
-function arraySum (singleDigitArray) {
-    let finalNum = singleDigitArray.reduce();
+function arraySum(singleDigitArray) {
+    const summedDigit = singleDigitArray.reduce((accumulator, currentValue) => accumulator + currentValue);
+    return summedDigit;
 }
+
+function zeroCheck(summedDigit) {
+    const isZero = summedDigit % 10;
+    if (isZero === 0) {
+        return true;
+    } else {
+        return false;
+    };
+}
+
