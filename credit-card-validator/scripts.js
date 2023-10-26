@@ -88,3 +88,20 @@ function firstDigit456(cardArray) {
     } else {return "Check your number; this is not a valid number."
     }
 };
+
+//UI LOGIC
+// function processForm() {
+//     // collect user input then call strToArray()
+// }
+
+
+// window.addEventListener("load", function() {
+//     let form = document.querySelector("form");
+//     form.addEventListener("submit", function(event) {
+//         event.preventDefault();
+//         processForm();
+//         // 
+//         // document.querySelector("div#results").removeAttribute("class")
+
+//     })
+// })
