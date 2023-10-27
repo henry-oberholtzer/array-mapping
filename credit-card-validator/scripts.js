@@ -10,9 +10,9 @@ function arrayReverse(cardArray) {
     return arrayDouble(reversedArray);
 }
 function arrayDouble(reversedArray) {
-    const doubledArray = reversedArray.map(function(element, index) {
+    const doubledArray = reversedArray.map(function (element, index) {
         const num = parseInt(element);
-        if(index % 2 === 0) {
+        if (index % 2 === 0) {
             return num * 2;
         } else {
             return num;
@@ -22,16 +22,16 @@ function arrayDouble(reversedArray) {
 }
 function toSingleDigit(doubledArray) {
     const singleDigitArray = [];
-    doubledArray.forEach(function(number) {
+    doubledArray.forEach(function (number) {
         if (number > 9) {
             let strNum = number.toString();
             const strNumArray = strNum.split('');
             let sumVariable = 0;
-            strNumArray.forEach(function(num) {
+            strNumArray.forEach(function (num) {
                 let makeInt = parseInt(num)
                 sumVariable += makeInt;
-            })    
-            singleDigitArray.push(sumVariable); 
+            })
+            singleDigitArray.push(sumVariable);
         } else {
             singleDigitArray.push(number);
         }
@@ -79,7 +79,8 @@ function firstDigit456(cardArray) {
     }
     if (cardArray[0] === "6") {
         return "This is a Discover card."
-    } else {return "Check your number; this is not a valid number."
+    } else {
+        return "Check your number; this is not a valid number."
     }
 };
 //UI LOGIC
@@ -97,7 +98,7 @@ function handleSelect(event) {
     const div = document.getElementById("results");
     div.append(pElement);
 }
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     let form = document.querySelector("form");
     form.addEventListener("submit", handleSelect);
-    });
+});
