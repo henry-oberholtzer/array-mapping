@@ -1,16 +1,14 @@
-const cardNum = "0998445533334452";
-// 4 5 8 4 6 3 6 3 1 5 8 4 7 9 9 0 reversed, doubled, singled
-
+//test value:
+//const cardNum = "0998445533334452";
+//test valid number = 4102080860435620. works. my MC doesn't?!
 function strToArray(cardNum) {
     const cardArray = cardNum.split('');
     return arrayReverse(cardArray);
 }
-
 function arrayReverse(cardArray) {
     const reversedArray = cardArray.reverse();
     return arrayDouble(reversedArray);
 }
-
 function arrayDouble(reversedArray) {
     const doubledArray = reversedArray.map(function(element, index) {
         const num = parseInt(element);
@@ -22,7 +20,6 @@ function arrayDouble(reversedArray) {
     });
     return toSingleDigit(doubledArray);
 }
-
 function toSingleDigit(doubledArray) {
     const singleDigitArray = [];
     doubledArray.forEach(function(number) {
@@ -41,18 +38,17 @@ function toSingleDigit(doubledArray) {
     });
     return arraySum(singleDigitArray);
 }
-
 function arraySum(singleDigitArray) {
     const summedDigit = singleDigitArray.reduce((accumulator, currentValue) => accumulator + currentValue);
-    return summedDigit;
+    return zeroCheck(summedDigit);
 }
-
 function zeroCheck(summedDigit) {
+    let cardNum = document.getElementById("ccNum").value;
     const isZero = summedDigit % 10;
     if (isZero === 0) {
-        return true;
+        return lengthVisaMastercardDiscover(cardNum);
     } else {
-        return false;
+        return "Error, this is not a valid credit card number";
     };
 }
 
@@ -63,10 +59,9 @@ function lengthVisaMastercardDiscover(cardNum) {
     } else if (cardArray.length === 16) {
         return firstDigit456(cardArray);
     } else {
-        return undefined;
+        return "Error, wrong digit amount";
     }
 }
-
 function firstDigit3(cardArray) {
     if (cardArray[0] !== "3") {
         return null
@@ -75,7 +70,6 @@ function firstDigit3(cardArray) {
         return "AmEx"
     };
 };
-
 function firstDigit456(cardArray) {
     if (cardArray[0] === "4") {
         return "This is a Visa card."
@@ -88,20 +82,22 @@ function firstDigit456(cardArray) {
     } else {return "Check your number; this is not a valid number."
     }
 };
-
 //UI LOGIC
-// function processForm() {
-//     // collect user input then call strToArray()
-// }
-
-
-// window.addEventListener("load", function() {
-//     let form = document.querySelector("form");
-//     form.addEventListener("submit", function(event) {
-//         event.preventDefault();
-//         processForm();
-//         // 
-//         // document.querySelector("div#results").removeAttribute("class")
-
-//     })
-// })
+function handleSelect(event) {
+    event.preventDefault();
+    let cardNum = document.getElementById("ccNum").value;
+    let result = strToArray(cardNum);
+    // if (zeroCheck()) {
+    //     let result = 0
+    // } else {
+    //     let result = "Not a valid credit card number";
+    // }
+    const pElement = document.createElement("p");
+    pElement.append(result);
+    const div = document.getElementById("results");
+    div.append(pElement);
+}
+window.addEventListener("load", function() {
+    let form = document.querySelector("form");
+    form.addEventListener("submit", handleSelect);
+    });
